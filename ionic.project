@@ -1,6 +1,6 @@
 {
   "name": "IonicLandingPage",
-  "app_id": "",
+  "app_id": "cbf55bef",
   "gulpStartupTasks": [
     "sass",
     "watch"
