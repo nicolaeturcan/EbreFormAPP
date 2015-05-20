@@ -53,7 +53,9 @@
                   <!--<img ng-src="{{ item.image }}">-->
                   <h2>{{ item.training_resource_name }}</h2>
                   <h4>{{ item.training_resource_description }}</h4>
+                  [{{$index + 1}}] {{item.training_resource_name}} has id = {{item.training_resource_id}}.
               </a>
+              <pre>{{items | json}}</pre>
 
           </div>
 
