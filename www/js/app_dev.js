@@ -15,9 +15,15 @@ angular.module('starter', ['ionic'])
                 StatusBar.styleDefault();
             }
         });
-    }).controller('MyCtrl', function ($scope, $http) {
-        $scope.items = [];
+    }
+
+
+
+
+).controller('MyCtrl', function ($scope, $http) {
+        $scope.groups = [];
         $scope.loading = false;
+
 
         $scope.init = function () {
             $scope.loading = true;
@@ -40,17 +46,45 @@ angular.module('starter', ['ionic'])
                                 };
                             }
                             map[parent].items.push(obj);
+                            //var prova = map[parent].items.count();
                         }
 
                         return map['-'].items;
 
                     }
+
                     var r = convert(data)
-                    $scope.items = r;
+                    $scope.groups = r;
                     $scope.loading = false;
+
+                    /*for (var i=0; i < r.length; i++) {
+                        $scope.groups[i] = {
+
+                            items: [groups[i].items]
+                        };
+                        for (var j=0; j < groups[i].items.length; j++) {
+                            $scope.groups[i].items.push(groups[i].items);
+                        }
+                    }*/
+
+                    /*
+                     * if given group is the selected group, deselect it
+                     * else, select the given group
+                     */
+                    $scope.toggleGroup = function(group) {
+                        if ($scope.isGroupShown(group)) {
+                            $scope.shownGroup = null;
+                        } else {
+                            $scope.shownGroup = group;
+                        }
+                    };
+                    $scope.isGroupShown = function(group) {
+                        return $scope.shownGroup === group;
+                    };
 
                 });
         }
         $scope.init();
+
 
     });
