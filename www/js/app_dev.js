@@ -15,12 +15,36 @@ angular.module('starter', ['ionic'])
                 StatusBar.styleDefault();
             }
         });
-    }
+    })
+    .directive('collection', function () {
+        return {
+            restrict: "E",
+            replace: true,
+            scope: {
+                collection: '='
+            },
+            template: "<ul><ion-item class='item-stable' ng-click='toggleGroup(groups)' ng-class='{active: isGroupShown(groups)}'> <i class='icon' ng-class=\"isGroupShown(groups) ? 'ion-minus' : 'ion-plus'\"></i><member ng-repeat='member in collection' member='member'></member></ion-item></ul>"
+        }
+    })
 
+    .directive('member', function ($compile) {
+        return {
+            restrict: "E",
+            replace: true,
+            scope: {
+                member: '='
+            },
+            template: "<li> {{member.training_resource_name}}</li>",
+            link: function (scope, element, attrs) {
+                if (angular.isArray(scope.member.items)) {
+                    element.append("<collection collection='member.items'></collection>");
+                    $compile(element.contents())(scope)
+                }
+            }
+        }
+    })
 
-
-
-).controller('MyCtrl', function ($scope, $http) {
+    .controller('MyCtrl', function ($scope, $http) {
         $scope.groups = [];
         $scope.loading = false;
 
