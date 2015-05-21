@@ -11096,7 +11096,7 @@ IonicModule
  * generally on the right side. However, their exact locations are platform-specific.
  * For example, in iOS, the primary buttons are on the far left of the header, and
  * secondary buttons are on the far right, with the header title centered between them.
- * For Android, however, both groups of buttons are on the far right of the header,
+ * For Android, however, both items of buttons are on the far right of the header,
  * with the header title aligned left.
  *
  * We recommend always using `primary` and `secondary`, so the buttons correctly map

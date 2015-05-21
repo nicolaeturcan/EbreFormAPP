@@ -25624,7 +25624,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
             track = match[8],
             trackFn = track ? $parse(match[8]) : null,
             trackKeysCache = {},
-            // This is an array of array of existing option groups in DOM.
+            // This is an array of array of existing option items in DOM.
             // We try to reuse these if possible
             // - optionGroupsCache[0] is the options with no option group
             // - optionGroupsCache[?][0] is the parent: either the SELECT or OPTGROUP element
@@ -25780,7 +25780,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
         function render() {
           renderScheduled = false;
 
-          // Temporary location for the option groups before we render them
+          // Temporary location for the option items before we render them
           var optionGroups = {'':[]},
               optionGroupNames = [''],
               optionGroupName,

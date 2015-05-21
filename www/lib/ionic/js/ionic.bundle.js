@@ -34323,7 +34323,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
             track = match[8],
             trackFn = track ? $parse(match[8]) : null,
             trackKeysCache = {},
-            // This is an array of array of existing option groups in DOM.
+            // This is an array of array of existing option items in DOM.
             // We try to reuse these if possible
             // - optionGroupsCache[0] is the options with no option group
             // - optionGroupsCache[?][0] is the parent: either the SELECT or OPTGROUP element
@@ -34479,7 +34479,7 @@ var selectDirective = ['$compile', '$parse', function($compile,   $parse) {
         function render() {
           renderScheduled = false;
 
-          // Temporary location for the option groups before we render them
+          // Temporary location for the option items before we render them
           var optionGroups = {'':[]},
               optionGroupNames = [''],
               optionGroupName,
@@ -38456,7 +38456,7 @@ function UrlMatcher(pattern, config, parentMatcher) {
   // The number of segments is always 1 more than the number of parameters.
   function matchDetails(m, isSearch) {
     var id, regexp, segment, type, cfg, arrayMode;
-    id          = m[2] || m[3]; // IE[78] returns '' for unmatched groups instead of null
+    id          = m[2] || m[3]; // IE[78] returns '' for unmatched items instead of null
     cfg         = config.params[id];
     segment     = pattern.substring(last, m.index);
     regexp      = isSearch ? m[4] : m[4] || (m[1] == '*' ? '.*' : null);
@@ -39652,7 +39652,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
       return url;
     }
 
-    // TODO: Optimize groups of rules with non-empty prefix into some sort of decision tree
+    // TODO: Optimize items of rules with non-empty prefix into some sort of decision tree
     function update(evt) {
       if (evt && evt.defaultPrevented) return;
       var ignoreUpdate = lastPushedUrl && $location.url() === lastPushedUrl;
@@ -53006,7 +53006,7 @@ IonicModule
  * generally on the right side. However, their exact locations are platform-specific.
  * For example, in iOS, the primary buttons are on the far left of the header, and
  * secondary buttons are on the far right, with the header title centered between them.
- * For Android, however, both groups of buttons are on the far right of the header,
+ * For Android, however, both items of buttons are on the far right of the header,
  * with the header title aligned left.
  *
  * We recommend always using `primary` and `secondary`, so the buttons correctly map
