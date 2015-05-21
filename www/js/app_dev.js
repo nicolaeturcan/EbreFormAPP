@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('ionicApp', ['ionic']);
 
-    app.controller('aQº 1', function ($scope, $http) {
+app.controller('MyCtrl', function ($scope, $http) {
     $scope.items = [];
     $scope.loading = false;
 
