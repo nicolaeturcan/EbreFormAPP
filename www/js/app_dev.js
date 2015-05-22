@@ -12,56 +12,28 @@ app.controller('MyCtrl', function ($scope, $http) {
 
     $scope.init = function () {
         $scope.loading = true;
-        $http.get('http://api.ebre-format.com/api/training_resource').
+        $http.get('http://trainingresource.app/api/training_resource/parentResourceId/0').
             success(function (data, status, headers, config) {
 
-                function convert(data) {
-
-                    var map = {};
-                    for (var i = 0; i < data.length; i++) {
-                        var obj = data[i];
-                        obj.items = [];
-
-                        map[obj.training_resource_id] = obj;
-
-                        var parent = obj.training_resource_parentResourceId || '-';
-                        if (!map[parent]) {
-                            map[parent] = {
-                                items: []
-                            };
-                        }
-                        map[parent].items.push(obj);
-                    }
-                    console.log(map['-'].items);
-                    return map['-'].items;
-                }
-
-                var r = convert(data);
-                $scope.items = r;
+                $scope.items = data;
                 $scope.loading = false;
+
             });
     }
     $scope.init();
 
     $scope.showChilds = function (id) {
-        $http.get('http://api.ebre-format.com/api/training_resource/').
+        $http.get('http://trainingresource.app/api/training_resource/parentResourceId/' + id).
             success(function (data, status, headers, config) {
-                var children = [];
-                for (var i = 0; i < data.length; i++) {
 
-                    if (data[i].training_resource_parentResourceId == id) {
-                        children.push(data[i]);
-                        console.log(children.length);
+                var children = data;
+                console.log(children);
 
-                    }/*else{
-                        return $scope.items;
-                    }*/
-                }
                 if(children.length == 0){
                     return $scope.items;
                 }
 
-                console.log(children);
+                //console.log(children);
                 return $scope.items = children;
 
             });
