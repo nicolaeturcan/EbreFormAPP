@@ -46,22 +46,20 @@
         <ion-content class="padding">
             <p>
                 <a class="button icon icon-right ion-chevron-right" href="#/tab/facts">Scientific Facts</a>
-                <ion-list >
+                <ion-list>
                     <div ng-repeat="item in items">
-                        <ion-item class="item-stable"
-                   href="#/{{item.training_resource_id}}">
-                    <h2>{{ item.training_resource_name }}</h2>
+                        <ion-item class="item item-stable" ng-click="showChilds(item.training_resource_id)">
+                            <h2>{{ item.training_resource_name }}</h2>
+                        </ion-item>
 
-                    <a ng-repeat="item in items.items"
-                       href="#/{{item.training_resource_parentResourceId}}"
-                       class="item item-thumbnail-left">
-                        <h2>{{ item.training_resource_name }}</h2>
-                        <h4>{{ item.training_resource_description }}</h4>
-                    </a>
-                </a>
-                            </ion-item>
-                        </div>
-            </ion-list>
+                    </div>
+
+                    <pre>{{items | json}}</pre>
+
+                    </div>
+
+
+                </ion-list>
 
             </p>
         </ion-content>

@@ -12,7 +12,7 @@ app.controller('MyCtrl', function ($scope, $http) {
 
     $scope.init = function () {
         $scope.loading = true;
-        $http.get('http://trainingresource.app/api/training_resource').
+        $http.get('http://api.ebre-format.com/api/training_resource').
             success(function (data, status, headers, config) {
 
                 function convert(data) {
@@ -32,15 +32,42 @@ app.controller('MyCtrl', function ($scope, $http) {
                         }
                         map[parent].items.push(obj);
                     }
+                    console.log(map['-'].items);
                     return map['-'].items;
                 }
 
-                var r = convert(data)
+                var r = convert(data);
                 $scope.items = r;
                 $scope.loading = false;
             });
     }
     $scope.init();
+
+    $scope.showChilds = function (id) {
+        $http.get('http://api.ebre-format.com/api/training_resource/').
+            success(function (data, status, headers, config) {
+                var children = [];
+                for (var i = 0; i < data.length; i++) {
+
+                    if (data[i].training_resource_parentResourceId == id) {
+                        children.push(data[i]);
+                        console.log(children.length);
+
+                    }/*else{
+                        return $scope.items;
+                    }*/
+                }
+                if(children.length == 0){
+                    return $scope.items;
+                }
+
+                console.log(children);
+                return $scope.items = children;
+
+            });
+    }
+
+
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
