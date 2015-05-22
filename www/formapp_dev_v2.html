@@ -44,11 +44,16 @@
 <script id="templates/home.html" type="text/ng-template">
     <ion-view view-title="Home">
         <ion-content class="padding">
-            <p>
-                <a class="button icon icon-right ion-chevron-right" href="#/tab/facts">Scientific Facts</a>
-                <ion-list>
+
+                <a ng-show="items[0].training_resource_parentResourceId" class="button icon icon-right ion-chevron-right" ng-click="updateList(last_item)">Back</a>
+
+                <ion-list class="list list-inset">
+
                     <div ng-repeat="item in items">
-                        <ion-item class="item item-stable" ng-click="showChilds(item.training_resource_id)">
+                        <ion-item class="item item-stable" ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
+                            <h2>id: {{ item.training_resource_id }}</h2>
+
+                            <h2>parent: {{ item.training_resource_parentResourceId }}</h2>
                             <h2>{{ item.training_resource_name }}</h2>
                         </ion-item>
 
@@ -56,12 +61,8 @@
 
                     <pre>{{items | json}}</pre>
 
-                    </div>
-
-
                 </ion-list>
 
-            </p>
         </ion-content>
     </ion-view>
 </script>

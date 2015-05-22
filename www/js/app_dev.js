@@ -10,34 +10,31 @@ app.controller('MyCtrl', function ($scope, $http) {
     $scope.loading = false;
 
 
-    $scope.init = function () {
+
+
+    $scope.updateList = function (id, last_item = 0) {
         $scope.loading = true;
-        $http.get('http://trainingresource.app/api/training_resource/parentResourceId/0').
-            success(function (data, status, headers, config) {
+        //var idCache = parent_id;
+        console.log("id: " + id);
+        console.log("last_id: " + last_item);
 
-                $scope.items = data;
-                $scope.loading = false;
-
-            });
-    }
-    $scope.init();
-
-    $scope.showChilds = function (id) {
         $http.get('http://trainingresource.app/api/training_resource/parentResourceId/' + id).
             success(function (data, status, headers, config) {
-
-                var children = data;
-                console.log(children);
-
-                if(children.length == 0){
-                    return $scope.items;
-                }
-
+                $scope.loading = false;
                 //console.log(children);
-                return $scope.items = children;
-
+                if (data.length == 0) {
+                    return;
+                }
+                $scope.last_item = last_item;
+                return $scope.items = data;
             });
+
     }
+
+    $scope.init = function () {
+        $scope.updateList(0);
+    }
+    $scope.init();
 
 
 });
@@ -59,8 +56,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 }
             }
         })
-        .state('tabs.facts', {
-            url: "/facts",
+        .state('tabs.{{item.training_resource_id}}', {
+            url: "/{{item.training_resource_id}}",
             views: {
                 'home-tab': {
                     templateUrl: "templates/facts.html"
