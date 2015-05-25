@@ -1,1 +1,19 @@
 /* Empty. Add your own CSS if you like */
+
+
+body {
+	background:	url(../img/xcomputerclass-bg.jpg);
+    background-position: center;
+}
+
+body .view-container.tab-content,ion-content {
+	background-color: transparent;
+    opacity: 0.8;
+
+}
+
+body .pane, .menu, .view, .list, .item  {
+    background: transparent;
+
+}
+

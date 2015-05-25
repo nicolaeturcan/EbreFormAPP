@@ -12,7 +12,7 @@ app.controller('MyCtrl', function ($scope, $http) {
 
 
 
-    $scope.updateList = function (id, last_item = 0) {
+    $scope.updateList = function (id, last_item) {
         $scope.loading = true;
         //var idCache = parent_id;
         console.log("id: " + id);
@@ -29,6 +29,7 @@ app.controller('MyCtrl', function ($scope, $http) {
                 return $scope.items = data;
             });
 
+
     }
 
     $scope.init = function () {
@@ -37,71 +38,4 @@ app.controller('MyCtrl', function ($scope, $http) {
     $scope.init();
 
 
-});
-
-app.config(function ($stateProvider, $urlRouterProvider) {
-
-    $stateProvider
-        .state('tabs', {
-            url: "/tab",
-            abstract: true,
-            templateUrl: "templates/tabs.html"
-        })
-        .state('tabs.home', {
-            url: "/home",
-            views: {
-                'home-tab': {
-                    templateUrl: "templates/home.html",
-                    controller: 'HomeTabCtrl'
-                }
-            }
-        })
-        .state('tabs.{{item.training_resource_id}}', {
-            url: "/{{item.training_resource_id}}",
-            views: {
-                'home-tab': {
-                    templateUrl: "templates/facts.html"
-                }
-            }
-        })
-        .state('tabs.facts2', {
-            url: "/facts2",
-            views: {
-                'home-tab': {
-                    templateUrl: "templates/facts2.html"
-                }
-            }
-        })
-        .state('tabs.about', {
-            url: "/about",
-            views: {
-                'about-tab': {
-                    templateUrl: "templates/about.html"
-                }
-            }
-        })
-        .state('tabs.navstack', {
-            url: "/navstack",
-            views: {
-                'about-tab': {
-                    templateUrl: "templates/nav-stack.html"
-                }
-            }
-        })
-        .state('tabs.contact', {
-            url: "/contact",
-            views: {
-                'contact-tab': {
-                    templateUrl: "templates/contact.html"
-                }
-            }
-        });
-
-
-    $urlRouterProvider.otherwise("/tab/home");
-
-})
-
-app.controller('HomeTabCtrl', function ($scope) {
-    console.log('HomeTabCtrl');
 });
