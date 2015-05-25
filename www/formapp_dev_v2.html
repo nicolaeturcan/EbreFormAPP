@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>Tabs Example</title>
+    <title>FormApp - La aplicació per a formar-te a les terres de l'Ebre.</title>
 
     <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
@@ -21,6 +21,10 @@
     <div class="button icon-left ion-chevron-left button-clear button-dark" ng-show="items[0].training_resource_parentResourceId"
          ng-click="updateList(last_item)">Tornar
     </div>
+
+    <a href="index.html" class="button icon-left ion-chevron-left button-clear button-dark" ng-hide="items[0].training_resource_parentResourceId"
+       ng-click="updateList(last_item)"> <span class="network-name">Home</span></a>
+
 
     <h1 class="title">Formacions</h1>
 

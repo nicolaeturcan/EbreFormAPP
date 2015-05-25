@@ -18,7 +18,7 @@ app.controller('MyCtrl', function ($scope, $http) {
         console.log("id: " + id);
         console.log("last_id: " + last_item);
 
-        $http.get('http://trainingresource.app/api/training_resource/parentResourceId/' + id).
+        $http.get('http://api.ebre-format.com/api/training_resource/parentResourceId/' + id).
             success(function (data, status, headers, config) {
                 $scope.loading = false;
                 //console.log(children);
@@ -28,7 +28,6 @@ app.controller('MyCtrl', function ($scope, $http) {
                 $scope.last_item = last_item;
                 return $scope.items = data;
             });
-
 
     }
 
