@@ -5,12 +5,24 @@
 // the 2nd parameter is an array of 'requires'
 var app = angular.module('ionicApp', ['ionic']);
 
+
+
+app.run(function($ionicPlatform) {
+    $ionicPlatform.ready(function() {
+        // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+        // for form inputs)
+        if(window.cordova && window.cordova.plugins.Keyboard) {
+            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        }
+        if(window.StatusBar) {
+            StatusBar.styleDefault();
+        }
+    });
+})
+
 app.controller('MyCtrl', function ($scope, $http) {
     $scope.items = [];
     $scope.loading = false;
-
-
-
 
     $scope.updateList = function (id, last_item) {
         $scope.loading = true;
@@ -21,20 +33,17 @@ app.controller('MyCtrl', function ($scope, $http) {
         $http.get('http://api.ebre-format.com/api/training_resource/parentResourceId/' + id).
             success(function (data, status, headers, config) {
                 $scope.loading = false;
-                //console.log(children);
                 if (data.length == 0) {
                     return;
                 }
                 $scope.last_item = last_item;
                 return $scope.items = data;
             });
-
     }
 
     $scope.init = function () {
         $scope.updateList(0);
     }
     $scope.init();
-
 
 });

@@ -6,10 +6,12 @@
 
     <title>FormApp - La aplicació per a formar-te a les terres de l'Ebre.</title>
 
-    <link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
+    <!--<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
+    <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
 
     <!-- your app's js -->
@@ -43,7 +45,7 @@
                               <i class="icon ion-arrow-graph-up-right"></i>
 -->
 
-                    <img src="{{item.training_resource_thumbnail}}">
+                    <img ng-src="{{item.training_resource_thumbnail}}">
                 <p>
                     <h2>{{ item.training_resource_name }}</h2>
                 </p>
