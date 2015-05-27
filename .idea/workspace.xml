@@ -44,8 +44,8 @@
       <file leaf-file-name="formapp.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/formapp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.034483" vertical-offset="1276" max-vertical-offset="3060">
-              <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+            <state vertical-scroll-proportion="-12.75862" vertical-offset="2140" max-vertical-offset="3060">
+              <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -54,8 +54,8 @@
       <file leaf-file-name="formapp_dev_v2.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/formapp_dev_v2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.40137616" vertical-offset="856" max-vertical-offset="1800">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.71100914" vertical-offset="658" max-vertical-offset="1800">
+              <caret line="71" column="154" selection-start-line="71" selection-start-column="154" selection-end-line="71" selection-end-column="154" />
               <folding />
             </state>
           </provider>
@@ -64,8 +64,8 @@
       <file leaf-file-name="app_dev.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app_dev.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-19.129032" vertical-offset="163" max-vertical-offset="1134">
-              <caret line="42" column="38" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="38" />
+            <state vertical-scroll-proportion="-19.709677" vertical-offset="379" max-vertical-offset="1278">
+              <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -594,14 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/js/bootstrap.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.29032257" vertical-offset="0" max-vertical-offset="41814">
@@ -633,26 +625,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app_dev.js">
+    <entry file="file://$PROJECT_DIR$/www/formapp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.129032" vertical-offset="163" max-vertical-offset="1134">
-          <caret line="42" column="38" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="38" />
+        <state vertical-scroll-proportion="-12.75862" vertical-offset="2140" max-vertical-offset="3060">
+          <caret line="160" column="9" selection-start-line="160" selection-start-column="9" selection-end-line="160" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/formapp.html">
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.034483" vertical-offset="1276" max-vertical-offset="3060">
-          <caret line="100" column="32" selection-start-line="100" selection-start-column="32" selection-end-line="100" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1044">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app_dev.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.709677" vertical-offset="379" max-vertical-offset="1278">
+          <caret line="55" column="43" selection-start-line="55" selection-start-column="43" selection-end-line="55" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/www/formapp_dev_v2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40137616" vertical-offset="856" max-vertical-offset="1800">
-          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.71100914" vertical-offset="658" max-vertical-offset="1800">
+          <caret line="71" column="154" selection-start-line="71" selection-start-column="154" selection-end-line="71" selection-end-column="154" />
           <folding />
         </state>
       </provider>

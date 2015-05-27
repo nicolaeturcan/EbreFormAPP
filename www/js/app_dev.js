@@ -21,7 +21,7 @@ app.run(function ($ionicPlatform) {
 
 app.controller('MyCtrl', function ($scope, $http) {
 
-    var Base_URL ='http://api.ebre-format.com/api/training_resource/parentid/';
+    var Base_URL = 'http://api.ebre-format.com/api/training_resource/parentid/';
     $scope.items = [];
     $scope.loading = false;
 
@@ -37,14 +37,13 @@ app.controller('MyCtrl', function ($scope, $http) {
                 if (data.length == 0) {
                     //console.log("url: " + data);
                     //return window.open(data.training_resource_external_url)
-                    return ;
+                    return;
                 } else {
                     $scope.last_item = last_item;
                     $scope.actual_item = id;
-
                     return $scope.items = data;
                 }
-            }).finally(function() {
+            }).finally(function () {
                 $scope.$broadcast('scroll.refreshComplete')
             });
     }
@@ -53,5 +52,14 @@ app.controller('MyCtrl', function ($scope, $http) {
         $scope.updateList(0);
     }
     $scope.init();
+
+    $scope.openLink = function (item_URL) {
+
+        console.log("item_URL: " + item_URL);
+
+        return window.open(encodeURI(item_URL), '_system');
+
+    }
+
 
 });
