@@ -40,6 +40,8 @@ app.controller('MyCtrl', function ($scope, $http) {
                     return ;
                 } else {
                     $scope.last_item = last_item;
+                    $scope.actual_item = id;
+
                     return $scope.items = data;
                 }
             }).finally(function() {

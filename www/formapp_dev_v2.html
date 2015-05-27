@@ -36,7 +36,7 @@
 
 <ion-content class="padding">
 
-    <ion-refresher on-refresh="updateList(last_item)"></ion-refresher>
+    <ion-refresher on-refresh="updateList(actual_item)"></ion-refresher>
 
     <ion-list class="list list-inset">
 
@@ -58,14 +58,14 @@
 
                 <div class="container">
                     <div class="row">
-                        <div class="span12">
+                        <div class="span">
                             <h2>{{ item.training_resource_name }}</h2>
 
                             <p> {{item.training_resource_description | limitTo: 100}}
                                 {{item.training_resource_description.length >150 ? '&hellip;' : '' }}</p></div>
 
 
-                        <div class="span1">
+                        <div class="span">
                             <div class="buttons">
                                 <div class="short-div" style="background-color:green">
                                     <button class="button button-positive icon ion-information-circled"></button>
