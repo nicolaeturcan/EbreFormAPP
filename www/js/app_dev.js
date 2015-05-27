@@ -6,21 +6,22 @@
 var app = angular.module('ionicApp', ['ionic']);
 
 
-
-app.run(function($ionicPlatform) {
-    $ionicPlatform.ready(function() {
+app.run(function ($ionicPlatform) {
+    $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
-        if(window.cordova && window.cordova.plugins.Keyboard) {
+        if (window.cordova && window.cordova.plugins.Keyboard) {
             cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
         }
-        if(window.StatusBar) {
+        if (window.StatusBar) {
             StatusBar.styleDefault();
         }
     });
 })
 
 app.controller('MyCtrl', function ($scope, $http) {
+
+    var Base_URL ='http://api.ebre-format.com/api/training_resource/parentid/';
     $scope.items = [];
     $scope.loading = false;
 
@@ -30,14 +31,19 @@ app.controller('MyCtrl', function ($scope, $http) {
         console.log("id: " + id);
         console.log("last_id: " + last_item);
 
-        $http.get('http://api.ebre-format.com/api/training_resource/parentResourceId/' + id).
+        $http.get(Base_URL + id).
             success(function (data, status, headers, config) {
                 $scope.loading = false;
                 if (data.length == 0) {
-                    return;
+                    //console.log("url: " + data);
+                    //return window.open(data.training_resource_external_url)
+                    return ;
+                } else {
+                    $scope.last_item = last_item;
+                    return $scope.items = data;
                 }
-                $scope.last_item = last_item;
-                return $scope.items = data;
+            }).finally(function() {
+                $scope.$broadcast('scroll.refreshComplete')
             });
     }
 

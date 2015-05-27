@@ -3,7 +3,8 @@
 
 body {
 	background:	url(../img/xcomputerclass-bg.jpg);
-    background-position: center;
+    background-repeat: no-repeat;
+    background-position: right top;
 }
 
 body .view-container.tab-content,ion-content {
@@ -14,6 +15,9 @@ body .view-container.tab-content,ion-content {
 
 body .pane, .menu, .view, .list, .item  {
     background: transparent;
+    text-align: left;
 
 }
-
+.item-button-right, a.item.item-button-right, button.item.item-button-right{
+  padding-right:0px !important
+}
