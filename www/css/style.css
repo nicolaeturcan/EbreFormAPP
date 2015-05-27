@@ -18,6 +18,3 @@ body .pane, .menu, .view, .list, .item  {
     text-align: left;
 
 }
-.item-button-right, a.item.item-button-right, button.item.item-button-right{
-  padding-right:0px !important
-}
