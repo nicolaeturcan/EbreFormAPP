@@ -56,9 +56,8 @@
                 <img class="img-responsive" src="{{item.training_resource_thumbnail}}"
                      alt="{{ item.training_resource_name }} Photo">
 
-
                 <li class="row">
-                    <div class="col col-80">
+                    <div class="col col-80" ng-hide="show">
                         <h2>{{ item.training_resource_name }}</h2>
 
                         <p> {{item.training_resource_description | limitTo: 100}}
@@ -66,13 +65,23 @@
                     </div>
 
 
+                        <div class="col col-80" ng-show="show">
+                            <h2>{{ item.training_resource_name}}</h2>
+
+                            <p> {{item.training_resource_description}}</p>
+                            <p>{{item.training_resource_external_url}}</p>
+                        </div>
+
+
                     <div class="col">
-                        <button class="button button-positive icon ion-information-circled" ng-click="openInfo(item.training_resource_id)"></button>
+                        <button class="button button-positive icon ion-information-circled" ng-click="show = !show;$event.stopPropagation()"></button>
                         <br>
                         <br>
                         <button class="button button-dark icon ion-link" ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()" ng-show="item.training_resource_external_url"></button>
                     </div>
                 </li>
+
+
 
                 <!-- <div class="btn-group-vertical">
                      <button class="button button-dark icon ion-information-circled btn-group-vertical btn-primary" ng-click="Accept(item)"></button>
