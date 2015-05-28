@@ -3,26 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('starter', ['ionic']);
+var app = angular.module('ionicApp', ['ionic']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
-
-    $stateProvider
-        .state('home', {
-            url: "/home",
-            templateUrl: "home.html"
-        })
-        .state('details', {
-            url: "/details/:id",
-            templateUrl: "details.html",
-            controller :function($stateParams, $scope) {
-                $scope.params = $stateParams;
-            }
-        });
-
-    $urlRouterProvider.otherwise("/home");
-
-})
 
 app.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -37,41 +19,44 @@ app.run(function ($ionicPlatform) {
     });
 })
 
+app.controller('MyCtrl', function ($scope, $http, $window) {
 
-app.controller('MyCtrl', function ($scope, $http) {
+    var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
     $scope.items = [];
     $scope.loading = false;
 
-
-    $scope.init = function () {
+    $scope.updateList = function (id, last_item) {
         $scope.loading = true;
-        $http.get('http://trainingresource.app/api/training_resource').
+        //var idCache = parent_id;
+        console.log("id: " + id);
+        console.log("last_id: " + last_item);
+
+        console.log("url: " + Base_URL + id);
+
+        $http.get(Base_URL + id).
             success(function (data, status, headers, config) {
-
-                function convert(data) {
-
-                    var map = {};
-                    for (var i = 0; i < data.length; i++) {
-                        var obj = data[i];
-                        obj.items = [];
-
-                        map[obj.training_resource_id] = obj;
-
-                        var parent = obj.training_resource_parentResourceId || '-';
-                        if (!map[parent]) {
-                            map[parent] = {
-                                items: []
-                            };
-                        }
-                        map[parent].items.push(obj);
-                    }
-                    return map['-'].items;
-                }
-
-                var r = convert(data)
-                $scope.items = r;
                 $scope.loading = false;
+                if (data.length == 0) {
+                    //console.log("url: " + data);
+                    //return window.open(data.training_resource_external_url)
+                    return;
+                } else {
+                    $scope.last_item = last_item;
+                    $scope.actual_item = id;
+                    return $scope.items = data;
+                }
+            }).finally(function () {
+                $scope.$broadcast('scroll.refreshComplete')
             });
     }
+
+    $scope.init = function () {
+        $scope.updateList(0);
+    }
     $scope.init();
+
+    $scope.openLink = function (item_URL) {
+        console.log("item_URL: " + item_URL);
+        $window.open(item_URL);
+    };
 });

@@ -4,161 +4,91 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>Tabs Example</title>
+    <title>FormApp - La aplicació per a formar-te a les terres de l'Ebre.</title>
 
     <!--<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <script src="lib/ionic/js/ionic.bundle.js"></script>
 
+    <link href="css/style.css" rel="stylesheet">
+
 
     <!-- your app's js -->
-    <script src="js/app_dev.js"></script>
+    <script src="js/app.js"></script>
 </head>
 
 <body ng-controller="MyCtrl">
+<ion-header-bar class="bar-default">
+    <div class="button icon-left ion-chevron-left button-clear button-dark"
+         ng-show="items[0].training_resource_parentResourceId"
+         ng-click="updateList(last_item)">Enrere
+    </div>
 
-<ion-nav-bar class="bar-positive">
-    <ion-nav-back-button>
-    </ion-nav-back-button>
-</ion-nav-bar>
-
-<ion-nav-view></ion-nav-view>
+    <a href="index.html" class="button ion-chevron-left button-clear button-dark"
+       ng-hide="items[0].training_resource_parentResourceId"
+       ng-click="updateList(last_item)"> <span class="network-name">Home</span></a>
 
 
-<script id="templates/tabs.html" type="text/ng-template">
-    <ion-tabs class="tabs-icon-top tabs-positive">
+    <h1 class="title">Formacions</h1>
 
-        <ion-tab title="Home" icon="ion-home" href="#/tab/home">
-            <ion-nav-view name="home-tab"></ion-nav-view>
-        </ion-tab>
+</ion-header-bar>
 
-        <ion-tab title="About" icon="ion-ios-information" href="#/tab/about">
-            <ion-nav-view name="about-tab"></ion-nav-view>
-        </ion-tab>
+<ion-content class="padding">
 
-        <ion-tab title="Contact" icon="ion-ios-world" ui-sref="tabs.contact">
-            <ion-nav-view name="contact-tab"></ion-nav-view>
-        </ion-tab>
+    <ion-refresher on-refresh="updateList(actual_item)"></ion-refresher>
 
-    </ion-tabs>
-</script>
+    <ion-list class="list list-inset">
 
-<script id="templates/home.html" type="text/ng-template">
-    <ion-view view-title="Home">
-        <ion-content class="padding">
+        <div ng-repeat="item in items">
+            <ion-item class="item-stable item-thumbnail-left item-text-wrap" item="item"
+                      ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
 
-            <a ng-show="items[0].training_resource_parentResourceId" class="button icon icon-right ion-chevron-right" ng-click="updateList(last_item)">Back</a>
+                <!--
+                item-button-right
+                            <ion-item item="item" class="item item-stable item-thumbnail-left item-icon-right" ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
 
-            <ion-list class="list list-inset">
-
-                <div ng-repeat="item in items">
-                    <ion-item class="item item-stable" ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
-                        <h2>id: {{ item.training_resource_id }}</h2>
-
-                        <h2>parent: {{ item.training_resource_parentResourceId }}</h2>
-                        <h2>{{ item.training_resource_name }}</h2>
-                    </ion-item>
-
-                </div>
-
-                <pre>{{items | json}}</pre>
-
-            </ion-list>
-
-        </ion-content>
-    </ion-view>
-</script>
-
-<script id="templates/facts.html" type="text/ng-template">
-    <ion-view view-title="Facts">
-        <ion-content class="padding">
-            <p>Banging your head against a wall uses 150 calories an hour.</p>
-
-            <p>Dogs have four toes on their hind feet, and five on their front feet.</p>
-
-            <p>The ant can lift 50 times its own weight, can pull 30 times its own weight and always falls over on its
-                right side when intoxicated.</p>
-
-            <p>A cockroach will live nine days without it's head, before it starves to death.</p>
-
-            <p>Polar bears are left handed.</p>
-
-            <p>
-<!--
-                <a class="button icon ion-home" href="#/tab/home"> Home</a>
+                                            <h2>id: {{ item.training_resource_id }}</h2>
+                                            <h2>parent: {{ item.training_resource_parentResourceId }}</h2>
+                              <i class="icon ion-arrow-graph-up-right"></i>
 -->
-                <a class="button icon ion-home" href="#/tab/home"> Home</a>
 
-                <a class="button icon icon-right ion-chevron-right" href="#/tab/facts2">More Facts</a>
-            </p>
-        </ion-content>
-    </ion-view>
-</script>
+                <img class="img-responsive" src="{{item.training_resource_thumbnail}}"
+                     alt="{{ item.training_resource_name }} Photo">
 
-<script id="templates/facts2.html" type="text/ng-template">
-    <ion-view view-title="Also Factual">
-        <ion-content class="padding">
-            <p>111,111,111 x 111,111,111 = 12,345,678,987,654,321</p>
 
-            <p>1 in every 4 Americans has appeared on T.V.</p>
+                <li class="row">
+                    <div class="col col-80">
+                        <h2>{{ item.training_resource_name }}</h2>
 
-            <p>11% of the world is left-handed.</p>
+                        <p> {{item.training_resource_description | limitTo: 100}}
+                            {{item.training_resource_description.length >150 ? '&hellip;' : '' }}</p>
+                    </div>
 
-            <p>1 in 8 Americans has worked at a McDonalds restaurant.</p>
 
-            <p>$283,200 is the absolute highest amount of money you can win on Jeopardy.</p>
+                    <div class="col">
+                        <button class="button button-positive icon ion-information-circled"></button>
+                        <br>
+                        <br>
+                        <button class="button button-dark icon ion-link" ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()" ng-show="item.training_resource_external_url"></button>
+                    </div>
+                </li>
 
-            <p>101 Dalmatians, Peter Pan, Lady and the Tramp, and Mulan are the only Disney cartoons where both parents
-                are present and don't die throughout the movie.</p>
+                <!-- <div class="btn-group-vertical">
+                     <button class="button button-dark icon ion-information-circled btn-group-vertical btn-primary" ng-click="Accept(item)"></button>
+                     <button class="button button-royal icon ion-link btn-group-vertical btn-primary" ng-click="Reject(item)"></button>
+                                 <i class="icon ion-chevron-right icon-accessory"></i>
+                 </div>-->
 
-            <p>
-                <a class="button icon ion-home" href="#/tab/home"> Home</a>
-                <a class="button icon ion-chevron-left" href="#/tab/facts"> Scientific Facts</a>
-            </p>
-        </ion-content>
-    </ion-view>
-</script>
+            </ion-item>
 
-<script id="templates/about.html" type="text/ng-template">
-    <ion-view view-title="About">
-        <ion-content class="padding">
-            <h3>Create hybrid mobile apps with the web technologies you love.</h3>
+        </div>
 
-            <p>Free and open source, Ionic offers a library of mobile-optimized HTML, CSS and JS components for building
-                highly interactive apps.</p>
+        <!--<pre>{{items | json}}</pre>-->
 
-            <p>Built with Sass and optimized for AngularJS.</p>
+    </ion-list>
 
-            <p>
-                <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a>
-            </p>
-        </ion-content>
-    </ion-view>
-</script>
-
-<script id="templates/nav-stack.html" type="text/ng-template">
-    <ion-view view-title="Tab Nav Stack">
-        <ion-content class="padding">
-            <p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p>
-        </ion-content>
-    </ion-view>
-</script>
-
-<script id="templates/contact.html" type="text/ng-template">
-    <ion-view title="Contact">
-        <ion-content>
-            <div class="list">
-                <div class="item">
-                    @IonicFramework
-                </div>
-                <div class="item">
-                    @DriftyTeam
-                </div>
-            </div>
-        </ion-content>
-    </ion-view>
-</script>
+</ion-content>
 
 </body>
 
