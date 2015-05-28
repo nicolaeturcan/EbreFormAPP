@@ -20,9 +20,9 @@
 
 <body ng-controller="MyCtrl">
 <ion-header-bar class="bar-default">
-    <div class="button icon-left ion-chevron-left button-clear button-dark"
+    <div class="button  ion-chevron-left button-clear button-dark"
          ng-show="items[0].training_resource_parentResourceId"
-         ng-click="updateList(last_item)">Enrere
+         ng-click="updateList(last_item)"> Enrere
     </div>
 
     <a href="index.html" class="button ion-chevron-left button-clear button-dark"
@@ -67,7 +67,7 @@
 
 
                     <div class="col">
-                        <button class="button button-positive icon ion-information-circled"></button>
+                        <button class="button button-positive icon ion-information-circled" ng-click="openInfo(item.training_resource_id)"></button>
                         <br>
                         <br>
                         <button class="button button-dark icon ion-link" ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()" ng-show="item.training_resource_external_url"></button>

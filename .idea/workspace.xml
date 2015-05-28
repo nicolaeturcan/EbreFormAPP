@@ -44,8 +44,8 @@
       <file leaf-file-name="formapp.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/formapp.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.248" vertical-offset="54" max-vertical-offset="1800">
-              <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
+            <state vertical-scroll-proportion="1.2346667" vertical-offset="941" max-vertical-offset="1800">
+              <caret line="78" column="109" selection-start-line="78" selection-start-column="109" selection-end-line="78" selection-end-column="109" />
               <folding />
             </state>
           </provider>
@@ -54,8 +54,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/www/js/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="1224">
-              <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+              <caret line="23" column="101" selection-start-line="23" selection-start-column="101" selection-end-line="23" selection-end-column="101" />
               <folding />
             </state>
           </provider>
@@ -70,9 +70,9 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/www/formapp_dev_v2.html" />
         <option value="$PROJECT_DIR$/www/js/app_dev.js" />
-        <option value="$PROJECT_DIR$/www/formapp.html" />
         <option value="$PROJECT_DIR$/www/js/app.js" />
         <option value="$PROJECT_DIR$/www/index.html" />
+        <option value="$PROJECT_DIR$/www/formapp.html" />
       </list>
     </option>
   </component>
@@ -589,14 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="48" max-vertical-offset="1224">
-          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/www/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-13.620689" vertical-offset="2072" max-vertical-offset="8028">
@@ -605,10 +597,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/www/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1224">
+          <caret line="23" column="101" selection-start-line="23" selection-start-column="101" selection-end-line="23" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/www/formapp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.248" vertical-offset="54" max-vertical-offset="1800">
-          <caret line="29" column="83" selection-start-line="29" selection-start-column="83" selection-end-line="29" selection-end-column="83" />
+        <state vertical-scroll-proportion="1.2346667" vertical-offset="941" max-vertical-offset="1800">
+          <caret line="78" column="109" selection-start-line="78" selection-start-column="109" selection-end-line="78" selection-end-column="109" />
           <folding />
         </state>
       </provider>
