@@ -59,4 +59,13 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
         console.log("item_URL: " + item_URL);
         $window.open(item_URL);
     };
+
+    $scope.itemInfo = function (item) {
+        console.log("Clicked item: " + item);
+        console.log("last_item: " + item.training_resource_parentResourceId);
+
+        $scope.showItem = item;
+        $scope.last_item = item.training_resource_parentResourceId;
+    };
+
 });

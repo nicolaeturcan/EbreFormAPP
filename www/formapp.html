@@ -20,6 +20,7 @@
 
 <body ng-controller="MyCtrl">
 <ion-header-bar class="bar-default">
+
     <div class="button  ion-chevron-left button-clear button-dark"
          ng-show="items[0].training_resource_parentResourceId"
          ng-click="updateList(last_item)"> Enrere
@@ -27,8 +28,13 @@
 
     <a href="index.html" class="button ion-chevron-left button-clear button-dark"
        ng-hide="items[0].training_resource_parentResourceId"
-       ng-click="updateList(last_item)"> <span class="network-name">Home</span></a>
+       ng-click="updateList(last_item)"> <span class="network-name">Home</span>
+    </a>
 
+<!--    <div class="button  ion-chevron-left button-clear button-dark"
+         ng-show="showItem"
+         ng-click="updateList(last_item)"> asd
+    </div>-->
 
     <h1 class="title">Formacions</h1>
 
@@ -38,63 +44,65 @@
 
     <ion-refresher on-refresh="updateList(actual_item)"></ion-refresher>
 
-    <ion-list class="list list-inset">
+    <ion-list class="list list-inset" ng-hide="showItem">
 
-        <div ng-repeat="item in items">
+        <div ng-repeat="item in items" >
             <ion-item class="item-stable item-thumbnail-left item-text-wrap" item="item"
                       ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
-
-                <!--
-                item-button-right
-                            <ion-item item="item" class="item item-stable item-thumbnail-left item-icon-right" ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
-
-                                            <h2>id: {{ item.training_resource_id }}</h2>
-                                            <h2>parent: {{ item.training_resource_parentResourceId }}</h2>
-                              <i class="icon ion-arrow-graph-up-right"></i>
--->
 
                 <img class="img-responsive" src="{{item.training_resource_thumbnail}}"
                      alt="{{ item.training_resource_name }} Photo">
 
                 <li class="row">
-                    <div class="col col-80" ng-hide="show">
+                    <div class="col col-80">
                         <h2>{{ item.training_resource_name }}</h2>
 
                         <p> {{item.training_resource_description | limitTo: 100}}
                             {{item.training_resource_description.length >150 ? '&hellip;' : '' }}</p>
                     </div>
 
-
-                        <div class="col col-80" ng-show="show">
-                            <h2>{{ item.training_resource_name}}</h2>
-
-                            <p> {{item.training_resource_description}}</p>
-                        </div>
-
-
                     <div class="col">
-                        <button class="button button-positive icon ion-information-circled" ng-click="show = !show;$event.stopPropagation()"></button>
+                        <button class="button button-positive icon ion-information-circled"
+                                ng-click="itemInfo(item);$event.stopPropagation()"></button>
                         <br>
                         <br>
-                        <button class="button button-dark icon ion-link" ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()" ng-show="item.training_resource_external_url"></button>
+                        <button class="button button-dark icon ion-link"
+                                ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()"
+                                ng-show="item.training_resource_external_url"></button>
                     </div>
                 </li>
-
-
-
-                <!-- <div class="btn-group-vertical">
-                     <button class="button button-dark icon ion-information-circled btn-group-vertical btn-primary" ng-click="Accept(item)"></button>
-                     <button class="button button-royal icon ion-link btn-group-vertical btn-primary" ng-click="Reject(item)"></button>
-                                 <i class="icon ion-chevron-right icon-accessory"></i>
-                 </div>-->
 
             </ion-item>
 
         </div>
 
-        <!--<pre>{{items | json}}</pre>-->
+        <!--<pre>{{items | json}}</pre>         {{showItem.training_resource_name}}-->
+
 
     </ion-list>
+
+
+    <ion-list class="list list-inset" >
+
+    <div ng-show="showItem" >
+        <ion-item class="item-stable item-thumbnail-left item-text-wrap" item="item"
+                  ng-click="updateList(showItem.training_resource_id, showItem.training_resource_parentResourceId)">
+
+            <img class="img-responsive" src="{{showItem.training_resource_thumbnail}}"
+                 alt="{{ showItem.training_resource_name }} Photo">
+
+            <h2>{{ showItem.training_resource_name }}</h2>
+
+            <p> {{showItem.training_resource_description}}
+
+            </p>
+        </ion-item>
+
+    </div>
+
+    </ion-list>
+
+
 
 </ion-content>
 

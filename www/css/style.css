@@ -5,6 +5,7 @@ body {
 	background:	url(../img/xcomputerclass-bg.jpg);
     background-repeat: no-repeat;
     background-position: right top;
+    background-size: 100%;
 }
 
 body .view-container.tab-content,ion-content {
