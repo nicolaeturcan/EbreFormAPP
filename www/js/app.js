@@ -21,13 +21,12 @@ app.run(function ($ionicPlatform) {
 
 app.controller('MyCtrl', function ($scope, $http, $window) {
 
-    var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
     $scope.items = [];
     $scope.loading = false;
 
     $scope.updateList = function (id, last_item) {
         $scope.loading = true;
-        //var idCache = parent_id;
+        var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
         console.log("id: " + id);
         console.log("last_id: " + last_item);
 
@@ -45,6 +44,7 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
                 } else {
                     $scope.last_item = last_item;
                     $scope.actual_item = id;
+
                     return $scope.items = data;
                 }
             }).finally(function () {

@@ -21,22 +21,15 @@
 <body ng-controller="MyCtrl">
 <ion-header-bar class="bar-default">
 
-    <div class="button  ion-chevron-left button-clear button-dark"
-
-         ng-click="updateList(last_item)"> Enrere
+    <div class="button ion-chevron-left button-clear button-dark"
+         ng-show="items[0].training_resource_parentResourceId"
+         ng-click="updateList(last_item);id=false"> Enrere
     </div>
 
     <a href="index.html" class="button ion-chevron-left button-clear button-dark"
-       ng-show="items[0].training_resource_parentResourceId == 0"
+       ng-hide="items[0].training_resource_parentResourceId"
        ng-click="updateList(last_item)"> <span class="network-name">Home</span>
     </a>
-
-    <!-- ng-show="items[0].training_resource_parentResourceId != 0 || itemData.training_resource_parentResourceId != 0 "
-
-    <div class="button  ion-chevron-left button-clear button-dark"
-             ng-show="showItem"
-             ng-click="updateList(last_item)"> asd
-        </div>-->
 
     <h1 class="title">Formacions</h1>
 
@@ -65,7 +58,7 @@
 
                     <div class="col">
                         <button class="button button-positive icon ion-information-circled"
-                                ng-click="itemInfo(item);$event.stopPropagation()"></button>
+                                ng-click="itemInfo(item);item.training_resource_parentResourceId=true;$event.stopPropagation()"></button>
                         <br>
                         <br>
                         <button class="button button-dark icon ion-link"
@@ -104,7 +97,6 @@
         </div>
 
     </ion-list>
-
 
 </ion-content>
 
