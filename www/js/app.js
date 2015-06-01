@@ -33,12 +33,14 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
 
         console.log("url: " + Base_URL + id);
 
+        if(id == null){
+            id = last_item;
+        }
         $http.get(Base_URL + id).
             success(function (data, status, headers, config) {
                 $scope.loading = false;
                 if (data.length == 0) {
                     //console.log("url: " + data);
-                    //return window.open(data.training_resource_external_url)
                     return;
                 } else {
                     $scope.last_item = last_item;
@@ -61,11 +63,12 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
     };
 
     $scope.itemInfo = function (item) {
-        console.log("Clicked item: " + item);
+        console.log("Clicked item: " + item.training_resource_id);
         console.log("last_item: " + item.training_resource_parentResourceId);
 
-        $scope.showItem = item;
+        $scope.id = item.training_resource_id;
         $scope.last_item = item.training_resource_parentResourceId;
+        $scope.itemData = item;
     };
 
 });
