@@ -1,81 +1,71 @@
 /* Empty. Add your own CSS if you like */
 
-
 body {
-	background:	url(../img/xcomputerclass-bg.jpg);
-    background-repeat: no-repeat;
-    background-position: right top;
+    background: url(../img/xcomputerclass-bg.jpg) no-repeat center center;
+    background-size: cover;
 }
-
-body .view-container.tab-content,ion-content {
-	background-color: transparent;
+body .view-container.tab-content, ion-content {
+    background-color: transparent;
     opacity: 0.8;
-
 }
-
-body .pane, .menu, .view, .list, .item  {
+body .pane, .menu, .view, .list, .item {
     background: transparent;
     text-align: left;
-
 }
-
-.button{
-	margin: 5px;
-
+.botonera .button {
+    margin: 5px;
+    right: -25;
 }
-
-.botonera{
-	float:right;
-	max-width: 114px;
+.botonera {
+    float: right;
+    max-width: 114px;
 }
-
-
-.padding{
-	max-width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
+.padding {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
-footer{
-	display: none;
-	background-color: rgb(248, 248, 248);
-	box-sizing: border-box;
-	color: rgb(51, 51, 51);
-	font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	font-weight: bold;
-	height: 90px;
-	line-height: 20px;
-	padding-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	bottom: 0px;
-	position: fixed;
+footer {
+    display: none;
+    background-color: rgb(248, 248, 248);
+    box-sizing: border-box;
+    color: rgb(51, 51, 51);
+    font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    height: 90px;
+    line-height: 20px;
+    padding-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    bottom: 0px;
+    position: fixed;
 }
-footer ul, footer p{
-	
-	margin-right: auto !important;	
-	margin-left: auto !important;
+footer ul, footer p {
+    margin-right: auto !important;
+    margin-left: auto !important;
 }
-footer p{
-	width: 380px;
-
+footer p {
+    width: 380px;
 }
-footer ul{
-	width: 410px;
-
+footer ul {
+    width: 410px;
 }
-
-@media (min-width: 1200px){
-	 footer{
-	 	display: block;
-	 }
-	 .botonera{min-width: 130px;}
-	 .botonera *{float:right;}
-	.row{margin-right: 0px;}
+.row {
+    margin-left: -10px;
 }
-
-
+@media (min-width: 1024px) {
+    footer {
+        display: block;
+   }
+   .botonera {
+       min-width: 130px;
+  }
+  .botonera * {
+      float: right;
+ }
+ .button {
+     right: : 0;
+}
+}

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-    <title>FormApp - La aplicació per a formar-te a les terres de l'Ebre.</title>
+    <title>Tot Formació - L'aplicació per a formar-te a les Terres de l'Ebre.</title>
 
     <!--<link href="//code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <script src="//code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
@@ -19,7 +19,7 @@
 </head>
 
 <body ng-controller="MyCtrl">
-<ion-header-bar id="ola" class="bar-default">
+<ion-header-bar class="bar-default">
 
     <div class="button ion-chevron-left button-clear button-dark"
          ng-show="items[0].training_resource_parentResourceId"
@@ -88,8 +88,6 @@
 
                 <img class="img-responsive" src="{{itemData.training_resource_thumbnail}}"
                      alt="{{ itemData.training_resource_name }} Photo">
-
-                <h2>{{ itemData.training_resource_id }}</h2>
 
                 <h2>{{ itemData.training_resource_name }}</h2>
 

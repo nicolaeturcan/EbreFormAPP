@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.iesebre.dam2.pa201415.formapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ebre-formapp</name>
+<widget id="com.iesebre.dam2.pa201415.formapp" version="1.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Tot Formació</name>
   <description>
         L'aplicació per a formar-te a les Terres de l'Ebre...
     </description>
   <author email="virtualhost@iesebre.com" href="https://www.iesebre.com/">
-      Institut de l'Ebre
+      Institut de l'Ebre.
     </author>
   <content src="index.html"/>
   <access origin="*"/>
