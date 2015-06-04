@@ -3,10 +3,9 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('ionicApp', ['ionic']);
+var app = angular.module('ionicApp', ['ionic'])
 
-
-app.run(function ($ionicPlatform) {
+.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -16,8 +15,36 @@ app.run(function ($ionicPlatform) {
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
+
+        function checkConnection() {
+            var networkState = navigator.connection.type;
+
+            var states = {};
+            states[Connection.UNKNOWN]  = 'Unknown connection';
+            states[Connection.ETHERNET] = 'Ethernet connection';
+            states[Connection.WIFI]     = 'WiFi connection';
+            states[Connection.CELL_2G]  = 'Cell 2G connection';
+            states[Connection.CELL_3G]  = 'Cell 3G connection';
+            states[Connection.CELL_4G]  = 'Cell 4G connection';
+            states[Connection.CELL]     = 'Cell generic connection';
+            states[Connection.NONE]     = 'No network connection';
+
+            console.log('Connection type: ' + states[networkState]);
+        }
+        $interval(function(){
+            checkConnection();
+        }, 5000)
+
+
+        document.addEventListener("offline", onOffline, false);
+
+        function onOffline() {
+            // Handle the offline event
+            alert('you are offline');
+        }
+
     });
-})
+});
 
 app.controller('MyCtrl', function ($scope, $http, $window) {
 
@@ -29,7 +56,6 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
         var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
         console.log("id: " + id);
         console.log("last_id: " + last_item);
-
         console.log("url: " + Base_URL + id);
 
         if(id == null){
@@ -44,17 +70,27 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
                 } else {
                     $scope.last_item = last_item;
                     $scope.actual_item = id;
-
-                    return $scope.items = data;
+                    $scope.items = data;
+                    window.localStorage.setItem("items", JSON.stringify(data));
                 }
-            }).finally(function () {
-                $scope.$broadcast('scroll.refreshComplete')
+            })
+
+            //Useless in our aplication for now.
+            /*.error(function(data) {
+                if(window.localStorage.getItem("items") !== undefined) {
+                    $scope.items = JSON.parse(window.localStorage.getItem("items"));
+                }
+            })*/
+
+            .finally(function () {
+                $scope.$broadcast('scroll.refreshComplete');
             });
-    }
+    };
 
     $scope.init = function () {
         $scope.updateList(0);
-    }
+    };
+
     $scope.init();
 
     $scope.openLink = function (item_URL) {

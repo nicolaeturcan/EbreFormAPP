@@ -84,12 +84,22 @@ h6 {
         width: 100%;
     }
 }
+.company-logo img {
+    position: relative;
+    float: left;
+    width:  70%;
+    height: 70%;
+    background-size:     cover;
+}
+
 
 .network-name {
     text-transform: uppercase;
     font-size: 14px;
     font-weight: 400;
     letter-spacing: 2px;
+    /* edited */
+    width: 120px;
 }
 
 .content-section-a {
@@ -168,3 +178,14 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+footer ul, footer p {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+footer p {
+    width: 380px;
+}
+footer ul {
+    width: 510px;
+}
+
