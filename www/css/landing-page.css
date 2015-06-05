@@ -99,7 +99,8 @@ h6 {
     font-weight: 400;
     letter-spacing: 2px;
     /* edited */
-    width: 120px;
+    display: inline-block;
+    width:100px;
 }
 
 .content-section-a {
@@ -125,6 +126,12 @@ h6 {
 
 .banner {
     padding: 100px 0;
+    color: #f8f8f8;
+    background: url(../img/banner-bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.partners {
     color: #f8f8f8;
     background: url(../img/banner-bg.jpg) no-repeat center center;
     background-size: cover;
@@ -178,14 +185,20 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
-footer ul, footer p {
-    margin-right: auto !important;
-    margin-left: auto !important;
-}
-footer p {
-    width: 380px;
-}
-footer ul {
-    width: 510px;
+
+.download-now-app {
+    display: none;
 }
 
+@media (min-width: 1024px) {
+    .download-now-app {
+        display: block;
+    }
+
+
+}
+
+a.download-now img {
+    height: 55px;
+    width: auto !important;
+}

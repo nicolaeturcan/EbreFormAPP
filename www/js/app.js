@@ -71,7 +71,7 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
                     $scope.last_item = last_item;
                     $scope.actual_item = id;
                     $scope.items = data;
-                    window.localStorage.setItem("items", JSON.stringify(data));
+                    //window.localStorage.setItem("items", JSON.stringify(data));
                 }
             })
 
@@ -102,9 +102,23 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
         console.log("Clicked item: " + item.training_resource_id);
         console.log("last_item: " + item.training_resource_parentResourceId);
 
+        if(item.training_resource_parentResourceId == 0){
+            $scope.last_item_name = item.training_resource_name;
+        }else{
+            var Base_URL = 'http://178.62.75.243/api/training_resource/' + item.training_resource_parentResourceId;
+            console.log("Base_URL", Base_URL);
+
+            $http.get(Base_URL).
+                success(function (data, status, headers, config) {
+                    $scope.last_item_name = data.training_resource_name;
+                });
+        }
+
         $scope.id = item.training_resource_id;
         $scope.last_item = item.training_resource_parentResourceId;
         $scope.itemData = item;
+
+
     };
 
 });

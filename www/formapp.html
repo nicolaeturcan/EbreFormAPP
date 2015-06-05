@@ -33,8 +33,9 @@
        ng-click="updateList(last_item)"> <span class="network-name">Home</span>
     </a>
 
-    <h1 class="title">Formacions</h1>
+    <h1 class="title" ng-if="!id">Formacions</h1>
 
+    <h1 class="title" ng-if="id">{{last_item_name}}</h1>
 
 
 </ion-header-bar>
@@ -116,19 +117,19 @@
                     <li>
                         <a href="index.html#">Home</a>
                     </li>
-                        <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider">&sdot;</li>
                     <li>
                         <a href="index.html#about">Qui som?</a>
-                       <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider">&sdot;</li>
 
                     </li>
                     <li>
                         <a href="index.html#partners">Col·laboradors</a>
-                        <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider">&sdot;</li>
                     </li>
                     <li>
                         <a href="index.html#contact">Contacta'ns</a>
-                        <li class="footer-menu-divider">&sdot;</li>
+                    <li class="footer-menu-divider">&sdot;</li>
                     </li>
                     <li>
                         <a href="http://178.62.75.243/admin">Administrador</a>

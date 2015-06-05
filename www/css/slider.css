@@ -1,0 +1,87 @@
+.jssorb21 {
+    position: absolute;
+}
+
+.jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+    position: absolute;
+    /* size of bullet elment */
+    width: 19px;
+    height: 19px;
+    text-align: center;
+    line-height: 19px;
+    color: white;
+    font-size: 12px;
+    /*background: url(./img/img/b21.png) no-repeat;*/
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.jssorb21 div {
+    background-position: -5px -5px;
+}
+
+.jssorb21 div:hover, .jssorb21 .av:hover {
+    background-position: -35px -5px;
+}
+
+.jssorb21 .av {
+    background-position: -65px -5px;
+}
+
+.jssorb21 .dn, .jssorb21 .dn:hover {
+    background-position: -95px -5px;
+}
+
+.jssora21l, .jssora21r {
+    display: block;
+    position: absolute;
+    /* size of arrow element */
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    /*background: url(./img/img/a21.png) center center no-repeat;*/
+    overflow: hidden;
+}
+
+/*.jssora21l img:hover, .jssora21r img:hover {
+    *//*opacity: 50%;*//*
+}
+
+.slidertitul {
+    position: absolute;
+    width: 480px;
+    height: 120px;
+    top: 30px;
+    left: 30px;
+    padding: 45px;
+    text-align: left;
+    line-height: 60px;
+    *//*text-transform: uppercase;*//*
+    font-size: 30px;
+    color: #424242;
+}
+
+.slidertext {
+    position: absolute;
+    width: 480px;
+    height: 120px;
+    top: 300px;
+    left: 30px;
+    padding: 5px;
+    text-align: left;
+    line-height: 36px;
+    font-size: 30px;
+    color: #000;
+}
+
+*/
+
+#slider1_container {
+
+}
+
+.sliderimatge {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}

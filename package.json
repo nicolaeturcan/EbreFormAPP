@@ -23,7 +23,8 @@
       "locator": "https://github.com/apache/cordova-plugin-whitelist",
       "id": "cordova-plugin-whitelist"
     },
-    "cordova-plugin-network-information"
+    "cordova-plugin-network-information",
+    "cordova-plugin-splashscreen"
   ],
   "cordovaPlatforms": [
     "android"
