@@ -785,7 +785,7 @@ function UrlMatcher(pattern, config, parentMatcher) {
   // The number of segments is always 1 more than the number of parameters.
   function matchDetails(m, isSearch) {
     var id, regexp, segment, type, cfg, arrayMode;
-    id          = m[2] || m[3]; // IE[78] returns '' for unmatched items instead of null
+    id          = m[2] || m[3]; // IE[78] returns '' for unmatched groups instead of null
     cfg         = config.params[id];
     segment     = pattern.substring(last, m.index);
     regexp      = isSearch ? m[4] : m[4] || (m[1] == '*' ? '.*' : null);
@@ -1981,7 +1981,7 @@ function $UrlRouterProvider(   $locationProvider,   $urlMatcherFactory) {
       return url;
     }
 
-    // TODO: Optimize items of rules with non-empty prefix into some sort of decision tree
+    // TODO: Optimize groups of rules with non-empty prefix into some sort of decision tree
     function update(evt) {
       if (evt && evt.defaultPrevented) return;
       var ignoreUpdate = lastPushedUrl && $location.url() === lastPushedUrl;
