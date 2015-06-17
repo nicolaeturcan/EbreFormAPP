@@ -4,27 +4,33 @@ body {
     background: url(../img/xcomputerclass-bg.jpg) no-repeat center center;
     background-size: cover;
 }
+
 body .view-container.tab-content, ion-content {
     background-color: transparent;
     opacity: 0.8;
 }
+
 body .pane, .menu, .view, .list, .item {
     background: transparent;
     text-align: left;
 }
+
 .botonera .button {
     margin: 5px;
     right: -25;
 }
+
 .botonera {
     float: right;
     max-width: 114px;
 }
+
 .padding {
     max-width: 1000px;
     margin-left: auto;
     margin-right: auto;
 }
+
 footer {
     display: none;
     background-color: rgb(248, 248, 248);
@@ -43,30 +49,38 @@ footer {
     bottom: 0px;
     position: fixed;
 }
+
 footer ul, footer p {
     margin-right: auto !important;
     margin-left: auto !important;
 }
+
 footer p {
     width: 380px;
 }
+
 footer ul {
     width: 510px;
 }
+
 .row {
     margin-left: -10px;
 }
+
 @media (min-width: 1024px) {
     footer {
         display: block;
-   }
-   .botonera {
-       min-width: 130px;
-  }
-  .botonera * {
-      float: right;
- }
- .button {
-     right: 0;
-}
+    }
+
+    .botonera {
+        min-width: 130px;
+    }
+
+    .botonera * {
+        float: right;
+    }
+
+    .button {
+        right: 0;
+    }
 }
