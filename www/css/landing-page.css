@@ -186,13 +186,13 @@ p.copyright {
     margin: 15px 0 0;
 }
 
-.download-now-app {
-    display: none;
-}
+/*.download-now-app {
+    display: block;
+}*/
 
 @media (max-width: 1024px) {
     .download-now-app {
-        display: block;
+        display: none;
     }
 }
 
@@ -209,6 +209,18 @@ a.download-now img {
     font-family: "trebuchet ms", sans-serif;*/
 }
 
+div.about {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #000000;
+    background: url(../img/tot_formacio_1024x500_v2_transparent.png) no-repeat center center;
+    background-size: cover;
+}
+div.box {
+    width: 80%;
+    margin: 0 auto;
+}
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
@@ -387,3 +399,4 @@ iPad 3
     margin: 0;
     background-color: #008080;
 }
+
