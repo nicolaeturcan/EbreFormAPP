@@ -53,7 +53,9 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
 
     $scope.updateList = function (id, last_item) {
         $scope.loading = true;
-        var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
+        var Base_URL = 'http://trainingresourceapp.dev/api/training_resource/?training_resource_parentResourceId=';
+       //var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
+
         console.log("id: " + id);
         console.log("last_id: " + last_item);
         console.log("url: " + Base_URL + id);
