@@ -33,7 +33,7 @@ var app = angular.module('ionicApp', ['ionic'])
         }
         $interval(function(){
             checkConnection();
-        }, 5000)
+        }, 5000);
 
 
         document.addEventListener("offline", onOffline, false);
@@ -53,8 +53,8 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
 
     $scope.updateList = function (id, last_item) {
         $scope.loading = true;
-        var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
-       //var Base_URL = 'http://178.62.75.243/api/training_resource/?training_resource_parentResourceId=';
+        //var Base_URL = 'http://trainingresource.app/api/training_resource?parent_id=';
+        var Base_URL = 'http://178.62.75.243/api/training_resource?parent_id=';
 
         console.log("id: " + id);
         console.log("last_id: " + last_item);
@@ -101,23 +101,24 @@ app.controller('MyCtrl', function ($scope, $http, $window) {
     };
 
     $scope.itemInfo = function (item) {
-        console.log("Clicked item: " + item.training_resource_id);
-        console.log("last_item: " + item.training_resource_parentResourceId);
+        console.log("Clicked item: " + item.id);
+        console.log("last_item: " + item.parent_id);
 
-        if(item.training_resource_parentResourceId == 0){
-            $scope.last_item_name = item.training_resource_name;
+        if(item.parent_id == 0){
+            $scope.last_item_name = item.name;
         }else{
-            var Base_URL = 'http://178.62.75.243/api/training_resource/' + item.training_resource_parentResourceId;
+            var Base_URL = 'http://178.62.75.243/api/training_resource/' + item.parent_id;
+            //var Base_URL = 'http://trainingresource.app/api/training_resource/' + item.parent_id;
             console.log("Base_URL", Base_URL);
 
             $http.get(Base_URL).
                 success(function (data, status, headers, config) {
-                    $scope.last_item_name = data.training_resource_name;
+                    $scope.last_item_name = data.name;
                 });
         }
 
-        $scope.id = item.training_resource_id;
-        $scope.last_item = item.training_resource_parentResourceId;
+        $scope.id = item.id;
+        $scope.last_item = item.parent_id;
         $scope.itemData = item;
     };
 

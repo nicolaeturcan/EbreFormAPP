@@ -24,12 +24,12 @@
 <ion-header-bar class="bar-default">
 
     <div class="button ion-chevron-left button-clear button-dark"
-         ng-show="items[0].training_resource_parentResourceId"
+         ng-show="items[0].parent_id"
          ng-click="updateList(last_item);id=false"> Enrere
     </div>
 
     <a href="index.html" class="button ion-chevron-left button-clear button-dark"
-       ng-hide="items[0].training_resource_parentResourceId"
+       ng-hide="items[0].parent_id"
        ng-click="updateList(last_item)"> <span class="network-name">Home</span>
     </a>
 
@@ -48,28 +48,29 @@
 
         <div ng-repeat="item in items">
             <ion-item class="item-stable item-thumbnail-left item-text-wrap" item="item"
-                      ng-click="updateList(item.training_resource_id,item.training_resource_parentResourceId)">
+                      ng-click="updateList(item.id, item.parent_id)">
 
-                <img class="img-responsive" src="http://178.62.75.243/images/{{ item.training_resource_thumbnail }}"
-                     alt="{{ item.training_resource_name }} Photo">
+                <!--<img class="img-responsive" ng-src="http://trainingresource.app/{{itemData.thumbnail}}" alt="{{ itemData.name }} Photo">-->
+
+                <img class="img-responsive" ng-src="http://178.62.75.243/{{ item.thumbnail }}" alt="{{ item.name }} Photo">
 
                 <li class="row">
                     <div class="col col-80">
-                        <h2>{{ item.training_resource_name }}</h2>
+                        <h2>{{ item.name }}</h2>
 
-                        <p> {{item.training_resource_description | limitTo: 100}}
-                            {{item.training_resource_description.length >150 ? '&hellip;' : '' }}</p>
+                        <p> {{item.description | limitTo: 100}}
+                            {{item.description.length >150 ? '&hellip;' : '' }}</p>
                     </div>
 
                     <div class="col">
                         <div>
                             <div class="botonera">
                                 <button class="button button-positive icon ion-information-circled"
-                                        ng-click="itemInfo(item);item.training_resource_parentResourceId=true;$event.stopPropagation()">
+                                        ng-click="itemInfo(item);item.parent_id=true;$event.stopPropagation()">
                                 </button>
                                 <button class="button button-dark icon ion-link"
-                                        ng-click="openLink(item.training_resource_external_url);$event.stopPropagation()"
-                                        ng-show="item.training_resource_external_url">
+                                        ng-click="openLink(item.external_url);$event.stopPropagation()"
+                                        ng-show="item.external_url">
                                 </button>
                             </div>
                         </div>
@@ -85,12 +86,12 @@
         <div ng-show="id">
             <ion-item class="item-stable item-thumbnail-left item-text-wrap" item="item">
 
-                <img class="img-responsive" src="http://178.62.75.243/images/{{itemData.training_resource_thumbnail}}"
-                     alt="{{ itemData.training_resource_name }} Photo">
+                <!--<img class="img-responsive" ng-src="http://trainingresource.app/{{itemData.thumbnail}}" alt="{{ itemData.name }} Photo">-->
+                <img class="img-responsive" src="http://178.62.75.243/{{itemData.thumbnail}}" alt="{{ itemData.name }} Photo">
 
-                <h2>{{ itemData.training_resource_name }}</h2>
+                <h2>{{ itemData.name }}</h2>
 
-                <p> {{ itemData.training_resource_description}}
+                <p> {{ itemData.description}}
 
                 </p>
             </ion-item>
