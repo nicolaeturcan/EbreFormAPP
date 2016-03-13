@@ -1,6 +1,6 @@
 ## Aplicació Tot Formació.
 
-Tot Formació és una aplicació multiplataforma amb l'objectiu de fàcilitar informació sobre les formacións professionals que puguis trobar a diversos instituts i altres entitats de les Terres de l'Ebre.
+Tot Formació és una aplicació multiplataforma que té per objectiu fàcilitar la informació sobre les formacions professionals que et puguis trobar a diversos instituts i altres entitats de les Terres de l'Ebre.
 
 ## Documentació del projecte
 
